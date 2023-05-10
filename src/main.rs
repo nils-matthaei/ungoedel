@@ -8,15 +8,15 @@ fn main() {
 
 fn ungödel(gödel: String) {
     let mut valid = true;
-    if !gödel.starts_with("1") || !gödel.ends_with("0") {
+    if !gödel.starts_with('1') || !gödel.ends_with('0') {
         valid = false;
     }
     let mut turing_machine: Vec<Transition> = Vec::new();
     let mut mode = Mode::State;
 
     let mut state = 0;
-    let mut symbol = 0;
-    let mut direction = 0;
+    let mut symbol = 1;
+    let mut direction = 1;
     for character in gödel.chars() {
         match mode {
             Mode::State => {
@@ -32,6 +32,10 @@ fn ungödel(gödel: String) {
             Mode::Symbol => {
                 if character == '0' {
                     symbol += 1;
+                    if symbol > 4 {
+                        valid = false;
+                        break;
+                    }
                 } else if character == '1' {
                     mode = Mode::Direction;
                 } else {
@@ -42,11 +46,15 @@ fn ungödel(gödel: String) {
             Mode::Direction => {
                 if character == '1' {
                     direction += 1;
+                    if direction > 3{
+                        valid = false;
+                        break;
+                    }
                 } else if character == '0' {
-                    turing_machine.push(build_transition(state, symbol + 1, direction + 1));
+                    turing_machine.push(build_transition(state, symbol, direction));
                     state = 0;
-                    symbol = 0;
-                    direction = 0;
+                    symbol = 1;
+                    direction = 1;
                     mode = Mode::State;
                 } else {
                     valid = false;
