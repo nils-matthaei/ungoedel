@@ -1,4 +1,4 @@
-use super::transition;
+use super::transition::*;
 enum Mode {
     State,
     Symbol,
@@ -10,7 +10,7 @@ pub fn ungödel(gödel: String) {
     if !gödel.starts_with('1') || !gödel.ends_with('0') {
         valid = false;
     }
-    let mut turing_machine: Vec<transition::Transition> = Vec::new();
+    let mut turing_machine: Vec<Transition> = Vec::new();
     let mut mode = Mode::State;
 
     let mut state = 0;
@@ -50,7 +50,7 @@ pub fn ungödel(gödel: String) {
                         break;
                     }
                 } else if character == '0' {
-                    turing_machine.push(transition::build_transition(state, symbol, direction));
+                    turing_machine.push(build_transition(state, symbol, direction));
                     state = 0;
                     symbol = 1;
                     direction = 1;
