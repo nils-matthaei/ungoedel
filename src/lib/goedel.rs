@@ -1,4 +1,5 @@
 use super::transition::*;
+use super::prettyprinter::pretty_printer;
 enum Mode {
     State,
     Symbol,
@@ -45,7 +46,7 @@ pub fn ungödel(gödel: String) {
             Mode::Direction => {
                 if character == '1' {
                     direction += 1;
-                    if direction > 3{
+                    if direction > 3 {
                         valid = false;
                         break;
                     }
@@ -63,9 +64,7 @@ pub fn ungödel(gödel: String) {
         }
     }
     if valid {
-        for transition in turing_machine {
-            println!("{}", transition.to_string());
-        }
+        pretty_printer(turing_machine);
     } else {
         println!("Invalid")
     }
