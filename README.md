@@ -1,12 +1,12 @@
 # ungoedel
-It happens all the time, you leave your turing machine lying around unattended for only a couple of minutes
-and immediately a free roamig theoretical computer scientist comes by and gödelises your turing machine,
+It happens all the time, you leave your Turing machine lying around unattended for only a couple of minutes
+and immediately a free roamig theoretical computer scientist comes by and gödelises your Turing machine,
 rendering it completely unuseable.
 
-Luckily, now there is a solution to this extrennely common problem:
-_ungoedel_ or in the correct german spelling _ungödel_ is a simple program,
-written entirely in Rust, to ungödelise any* turing machine and returns it in the form of a turing table. 
-Check out the Wiki to see how it works!
+Luckily, now there is a solution to this extremely common problem:
+_ungoedel_ (or in the correct german spelling _ungödel_) is a program,
+written entirely in Rust, to ungödelise any* Turing machine and returns it in the form of a Turing table. 
+Check out the [wiki](https://github.com/nils-matthaei/ungoedel/wiki) to see how it works!
 
 \*as long as it's tape alphabet is {0, 1, □}.
 
