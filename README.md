@@ -14,7 +14,7 @@ Check out the [wiki](https://github.com/nils-matthaei/ungoedel/wiki) to see how 
 
 It's really quite simple:
 
-Just run the code with a binary gödel-number as the argument. And just like that the associated 
+Just run the code with a binary coded Gödel number as the argument. And just like that the associated 
 turing table will be printed out.
 
 ```
